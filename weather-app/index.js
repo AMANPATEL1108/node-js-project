@@ -9,18 +9,69 @@ const port = 3022;
 
 app.use(express.urlencoded({ extended: true })); // Middleware to parse form data
 
+
 app.get('/', function (req, res) {
   // Create an HTML form for entering a city name
   const form = `
-    <html>
-      <body>
-        <form action="/weather" method="post">
-          <label for="city">Enter a City Name:</label>
-          <input type="text" name="city" id="city" required>
-          <button type="submit">Get Weather</button>
-        </form>
-      </body>
-    </html>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Weather Information</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        max-width: 400px;
+      }
+      h1 {
+        color: #333;
+      }
+      label {
+        font-weight: bold;
+      }
+      input[type="text"] {
+        padding: 5px;
+        width: 100%;
+        margin: 10px 0;
+      }
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather Information</h1>
+      <form action="/weather" method="post">
+        <label for="city">Enter a City Name:</label>
+        <input type="text" name="city" id="city" required>
+        <button type="submit">Get Weather</button>
+      </form>
+    </div>
+  </body>
+  </html>
   `;
 
   res.send(form);
@@ -44,13 +95,22 @@ app.post('/weather', function (req, res) {
         <html>
           <head>
             <style>
+              body {
+                font-family: Arial, sans-serif;
+                background-color: #f7f7f7;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+              }
               #container {
-                border: 2px solid #333;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
                 padding: 20px;
+                border-radius: 5px;
                 text-align: center;
                 max-width: 400px;
-                margin: 0 auto;
-                background-color: #f0f0f0;
               }
             </style>
           </head>
