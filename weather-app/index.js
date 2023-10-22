@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const app = express();
 
-const API_KEY = 'c0a83d5ce9098cb4e60f927c1887748f'; // Replace with your API key
+const API_KEY = ''; // Replace with your API key
 const port = 3022;
 
 app.use(express.urlencoded({ extended: true })); // Middleware to parse form data
