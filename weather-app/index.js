@@ -10,6 +10,9 @@ const port = 3022;
 app.use(express.urlencoded({ extended: true })); // Middleware to parse form data
 
 
+
+
+
 app.get('/', function (req, res) {
   // Create an HTML form for entering a city name
   const form = `
